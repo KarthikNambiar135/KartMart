@@ -34,7 +34,37 @@ import AdminCoupons from './pages/admin/AdminCoupons';
 import AdminAnalytics from './pages/admin/AdminAnalytics';
 import AdminOrderDetail from './pages/admin/AdminOrderDetail';
 
+import BackendLoader from './components/BackendLoader';
+import useBackendStatus from './hooks/useBackendStatus';
+
+
 function App() {
+  const { isBackendReady, error } = useBackendStatus();
+
+  if (!isBackendReady && !error) {
+    return <BackendLoader />;
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-red-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="text-red-500 text-6xl mb-4">⚠️</div>
+          <h2 className="text-xl font-semibold text-gray-900 mb-2">
+            Service Unavailable
+          </h2>
+          <p className="text-gray-600 mb-4">{error}</p>
+          <button 
+            onClick={() => window.location.reload()} 
+            className="px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+          >
+            Try Again
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <AuthProvider>
       <CurrencyProvider>
