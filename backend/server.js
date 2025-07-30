@@ -31,7 +31,7 @@ const server = http.createServer(app);
 // ✅ Socket.IO for live chat
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:5173", "http://localhost:3000", "https://kart-mart.vercel.app/"],
+    origin: ["http://localhost:5173", "http://localhost:3000", "https://kart-mart.vercel.app"],
     methods: ["GET", "POST"]
   }
 });
@@ -89,7 +89,7 @@ app.use(cors({
   origin: [
     'http://localhost:3000',
     'http://localhost:5173',
-    'https://kart-mart.vercel.app/'
+    'https://kart-mart.vercel.app'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
