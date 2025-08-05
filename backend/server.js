@@ -26,6 +26,7 @@ const chatRoutes = require('./routes/chatRoutes'); // ✅ New
 connectDB();
 
 const app = express();
+app.set('trust proxy', 1);
 const server = http.createServer(app);
 
 // ✅ Socket.IO for live chat
