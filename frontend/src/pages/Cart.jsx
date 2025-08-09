@@ -18,7 +18,7 @@ const Cart = () => {
 
   if (cartItems.length === 0) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center mt-15 justify-center">
         <div className="text-center">
           <ShoppingBagIcon className="mx-auto h-16 w-16 text-gray-400 mb-4" />
           <h2 className="text-2xl font-bold text-white mb-4">Your cart is empty</h2>
@@ -40,7 +40,7 @@ const Cart = () => {
   const total = subtotal + shipping + tax;
 
   return (
-    <div className="min-h-screen py-8">
+    <div className="min-h-screen mt-15 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-3xl font-bold text-white">Shopping Cart</h1>
